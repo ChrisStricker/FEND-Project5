@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=11" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Neighborhood Map</title>
+		<script src="js/knockout.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN6fQCYN1L14ie8uTENpNZCCe9BPxPRbc&callback=initMap" async defer></script>
+		<script>
+			var map;
+			var archLatLng = { lat: 38.624674, lng: -90.184941 };
+			var buschLatLng =  { lat: 38.622644, lng: -90.192812 };
+			var botLatLng = { lat: 38.612008, lng: -90.260196 };
+			var zooLatLng =  { lat: 38.63578, lng: -90.288734 };
+			var foxLatLng = { lat: 38.639003, lng: -90.232133 };
+
+			function initMap() {
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: {lat :38.6272222, lng:-90.1977778},
+				zoom:12
+			});
+			
+			var marker1 = new google.maps.Marker({ position: archLatLng,	map: map });
+			var marker2 = new google.maps.Marker({ position: buschLatLng,	map: map });
+			var marker3 = new google.maps.Marker({ position: botLatLng,	map: map });
+			var marker4 = new google.maps.Marker({ position: zooLatLng,	map: map });
+			var marker5 = new google.maps.Marker({ position: foxLatLng,	map: map });
+		}
+		</script>
+		
+	</head>
+	<body>
+		<div id=map style="height:500px; width: 100%;"></div>
+	</body>
+</html>
