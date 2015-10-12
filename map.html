@@ -8,29 +8,48 @@
 		<script src="js/knockout.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN6fQCYN1L14ie8uTENpNZCCe9BPxPRbc&callback=initMap" async defer></script>
 		<script>
+			var SITES = [
+				{name:"Gateway Arch", lat:38.624674, lng:-90.184941},
+				{name:"Busch Stadium", lat:38.622644, lng:-90.192812},
+				{name:"Missouri Botanical Garden", lat:38.612008, lng:-90.260196},
+				{name:"St. Louis Zoo", lat:38.63578, lng:-90.288734},
+				{name:"Fabulous Fox Theater", lat:38.639003, lng:-90.232133}
+			];
+			
 			var map;
-			var archLatLng = { lat: 38.624674, lng: -90.184941 };
-			var buschLatLng =  { lat: 38.622644, lng: -90.192812 };
-			var botLatLng = { lat: 38.612008, lng: -90.260196 };
-			var zooLatLng =  { lat: 38.63578, lng: -90.288734 };
-			var foxLatLng = { lat: 38.639003, lng: -90.232133 };
 
 			function initMap() {
-			map = new google.maps.Map(document.getElementById('map'), {
-				center: {lat :38.6272222, lng:-90.1977778},
-				zoom:12
-			});
+				map = new google.maps.Map(document.getElementById('map'), {center: {lat :38.6272222, lng:-90.1977778},	zoom:12});
 			
-			var marker1 = new google.maps.Marker({ position: archLatLng,	map: map });
-			var marker2 = new google.maps.Marker({ position: buschLatLng,	map: map });
-			var marker3 = new google.maps.Marker({ position: botLatLng,	map: map });
-			var marker4 = new google.maps.Marker({ position: zooLatLng,	map: map });
-			var marker5 = new google.maps.Marker({ position: foxLatLng,	map: map });
-		}
+				var j = SITES.length
+				for (i=0; i<j; i++) {
+					new google.maps.Marker({ position: { lat: SITES[i].lat, lng: SITES[i].lng},	map: map });
+				}
+			}
+
+			var model = function() {
+				var self = this;
+
+				self.locations = ko.observableArray( 
+					ko.utils.arrayMap(SITES, function(location) {
+						return ko.observable(location);
+				}));
+			}
+
+			window.onload = function() {
+				ko.applyBindings(new model());
+			}
 		</script>
-		
 	</head>
 	<body>
-		<div id=map style="height:500px; width: 100%;"></div>
+		<div style="width:20%;">
+			<h2>Locations</h2>
+			<ul data-bind="foreach: locations">
+				<li>
+					<span data-bind="text: name"></span>
+				</li>
+			</ul>
+		</div>
+		<div id=map style="height:500px; width: 75%; float:right;"></div>
 	</body>
 </html>
