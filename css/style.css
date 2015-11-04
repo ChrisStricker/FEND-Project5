@@ -1,1 +1,9 @@
-body {}
+html,body,#content-container { height: 100%; margin: 0;	padding: 0; }
+#search-content { height: 35px; width: 100%; background-color: black; color: white; padding: 5px; }
+#search-content input { color: black; }
+#main-content { height: calc(100% - 35px); }
+#map-content, #filter-content { height: 100%; }
+#filter-content { background-color: white; }
+
+/* change margin styles on row class */
+.row { margin-left: 0; margin-right: 0; }
