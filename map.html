@@ -3,25 +3,31 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=11" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 		<title>Neighborhood Map</title>
-		<link rel="styleheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css" media="screen">
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="js/knockout.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN6fQCYN1L14ie8uTENpNZCCe9BPxPRbc"></script>
 	</head>
 	<body>
-		<div id="search-content" class="row">
-			<label>Search: </label>
-			<input type="search" data-bind="textInput: userInput, event: {keyup: filterMarkers}">
-		</div>
-		<div id="main-content" class="row">
-			<div id="location-content" class="col-xs-2">
-				<h2>Locations</h2>
-				<ul id="list-view" data-bind="foreach: visiblePlaces">
-      					<li data-bind="text: locationName"></li>
-    				</ul>
+		<div id="content-container" class="container-fluid">
+			<div id="search-content" class="row">
+				<label>Search: </label>
+				<input type="search" data-bind="textInput: userInput, event: {keyup: filterMarkers}">
 			</div>
-			<div id="map-content" class="col-xs-10" style="height:100%;"></div>
+		
+			<div id="main-content" class="row">
+				<div id="location-content" class="col-xs-2">
+					<h2>Locations</h2>
+					<ul id="list-view" data-bind="foreach: visiblePlaces">
+      						<li data-bind="text: locationName"></li>
+    					</ul>
+				</div>
+				<div id="map-content" class="col-xs-10"></div>
+			</div>
 		</div>
+		<script src="js/app.js"></script>
 	</body>
 </html>
