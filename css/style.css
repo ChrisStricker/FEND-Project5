@@ -1,5 +1,5 @@
 html,body,#content-container { height: 100%; margin: 0;	padding: 0; }
-#search-content { height: 35px; width: 100%; background-color: black; color: white; padding: 5px; }
+#search-content { height: 40px; width: 100%; background-color: black; color: white; padding: 5px; }
 #search-content input { color: black; }
 #main-content { height: calc(100% - 35px); }
 #map-content, #filter-content { height: 100%; }
@@ -7,6 +7,19 @@ html,body,#content-container { height: 100%; margin: 0;	padding: 0; }
 
 /* change margin styles on row class */
 .row { margin-left: 0; margin-right: 0; }
+
+/* menu styles */
+#location-content {
+	z-index: 10;
+	width: 225px;
+	position: absolute;
+	top: 100px;
+	left: 30px;
+	background: white none repeat scroll 0% 0%;
+	padding-left: 25px;
+}
+#location-content ol { padding-left: 5px; }
+#location-content ol { cursor: pointer; }
 
 /* infowindow styles */
 .gm-style-iw { width: 400px; max-width: 400px; }
