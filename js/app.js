@@ -23,11 +23,17 @@ function initMap(){
 
 var ViewModel = function() {
 	var self = this;
-  
+	
 	// Define the map
 	self.googleMap = map;
   
 	self.infowindow = new google.maps.InfoWindow();
+   	google.maps.event.addListener(infowindow, 'closeclick', function() {
+    		self.allPlaces.forEach(function(place){
+			place.marker.setAnimation(null);
+		});
+	});
+	
    	self.bounds = new google.maps.LatLngBounds();	//added to handle markers always being on the screen
 	// Location menu support
 	self.shouldShowMenu = ko.observable(true);
