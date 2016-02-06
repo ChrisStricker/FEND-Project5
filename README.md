@@ -5,7 +5,7 @@ This project takes at least five locations local to the developer and displays t
 
 How To Use
 ==========
-You can access the website at this url: http://chrisstricker.github.io/FEND-Project5/map.html or clone the repository locally and load the map.html into a browser.
+You can access the website at this url: http://chrisstricker.github.io/FEND-Project5/map.html or clone the repository locally and load the map.html file into a browser.
 
 The page displays a map of the St. Louis area, along with a couple places to see while in the city, designated by the markers.  If you click on a marker or on the location in the list, a request for more information will be sent to the Foursquare API.  When the API responds, the clicked marker will display the name of the location, along with the address, phone number, url, a description (if available) and a rating.
 
