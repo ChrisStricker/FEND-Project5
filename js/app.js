@@ -21,12 +21,11 @@ var ViewModel = function() {
   
 	// Define the map
 	self.googleMap = new google.maps.Map(mapDiv, {
-		center: MAP_CENTER,
-		zoom: 13
+		center: MAP_CENTER
 	});
   
 	self.infowindow = new google.maps.InfoWindow();
-  
+   	self.bounds = new google.maps.LatLngBounds();	//added to handle markers always being on the screen
 	// Location menu support
 	self.shouldShowMenu = ko.observable(true);
 	self.toggleMenu = function() {
@@ -53,6 +52,8 @@ var ViewModel = function() {
 		};
     
 		place.marker = new google.maps.Marker(markerOptions);
+		self.bounds.extend(place.latLng);
+		self.googleMap.fitBounds(self.bounds);
 		place.marker.addListener('click', activateLocation);
 	});
   
