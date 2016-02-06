@@ -14,7 +14,7 @@ var sites = [
 ];
 
 var mapDiv = document.getElementById("map-content");
-var contentString = '<div id="content"><div class="row"><h3>name</h3></div><div class="row"><div class="xs-hidden col-sm-4"><img src="fssrc" alt="Foursquare provided image"></div><div class="col-xs-12 col-sm-8"><span>address</span><br><span>phone</span><br><a href="fsurl">fsurl</a></div></div><div class="row"><p>description</p></div><div class="row"><span>Rating: fsrating / 10</span></div></div>';
+var contentString = '<div id="content"><div class="row"><h3>name</h3></div><div class="row"><div class="hidden-xs col-sm-4"><img src="fssrc" alt="Foursquare provided image"></div><div class="col-xs-12 col-sm-8"><span>address</span><br><span>phone</span><br><span>URL: </span><a href="fsurl">fsurl</a></div></div><div class="row"><p>description</p></div><div class="row"><span>Rating: fsrating / 10</span></div></div>';
 
 function initMap(){
     // Create a google map with id, center position and zoom level
