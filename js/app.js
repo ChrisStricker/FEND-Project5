@@ -21,7 +21,8 @@ var ViewModel = function() {
   
 	// Define the map
 	self.googleMap = new google.maps.Map(mapDiv, {
-		center: MAP_CENTER
+		center: MAP_CENTER,
+		zoom: 10
 	});
   
 	self.infowindow = new google.maps.InfoWindow();
@@ -56,7 +57,7 @@ var ViewModel = function() {
 		self.googleMap.fitBounds(self.bounds);
 		place.marker.addListener('click', activateLocation);
 	});
-  
+	self.googleMap.setCenter(self.bounds.getCenter());
 	// Support for filtering menu items and markers
 	self.visiblePlaces = ko.observableArray();
   
