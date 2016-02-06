@@ -55,11 +55,11 @@ var ViewModel = function() {
 		};
     
 		place.marker = new google.maps.Marker(markerOptions);
-		self.bounds.extend(place.latLng);
-		self.googleMap.fitBounds(self.bounds);
+		self.bounds.extend(place.marker.position);
 		place.marker.addListener('click', activateLocation);
 	});
-	self.googleMap.setCenter(self.bounds.getCenter());
+	self.googleMap.fitBounds(self.bounds);
+	
 	// Support for filtering menu items and markers
 	self.visiblePlaces = ko.observableArray();
   
