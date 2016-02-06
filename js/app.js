@@ -28,7 +28,7 @@ var ViewModel = function() {
 	self.googleMap = map;
   
 	self.infowindow = new google.maps.InfoWindow();
-   	google.maps.event.addListener(infowindow, 'closeclick', function() {
+   	google.maps.event.addListener(self.infowindow, 'closeclick', function() {
     		self.allPlaces.forEach(function(place){
 			place.marker.setAnimation(null);
 		});
